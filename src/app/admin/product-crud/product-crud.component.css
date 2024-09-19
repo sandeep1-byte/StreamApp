@@ -1,0 +1,41 @@
+/* Make the table header sticky */
+.thead-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
+  }
+  
+  /* Add scrollbar to tbody and set maximum height */
+  .table-container {
+    max-height: 98vh; /* Adjust as necessary */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+  }
+  
+  /* Ensure that the table layout remains fixed for smooth scrolling */
+  .table {
+    table-layout: fixed;
+    width: 100%;
+    height: 80vh;
+  }
+  
+  /* Fix header and align with content */
+  .table thead th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Add padding and alignment for the table cells */
+  .table tbody td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  /* Styling the buttons for better visual */
+  .btn {
+    width: 100px;
+    font-size: 0.875rem;
+  }
+  

@@ -1,0 +1,27 @@
+#wrapper {
+  height: 100vh; /* Full viewport height */
+  display: flex; /* Flexbox for layout */
+  transition: all 0.4s ease;
+}
+
+#sidebar-wrapper {
+  width: 250px;
+  transition: all 0.4s ease;
+  min-height: 100vh; /* Ensure sidebar takes full height */
+}
+
+#page-content-wrapper {
+  width: 100%;
+  padding: 20px; 
+  overflow-y: auto; /* Enable scrolling for content */
+  transition: margin-left 0.4s ease; /* Smooth transition */
+}
+
+#menu-toggle {
+  margin-left: 20px;
+}
+
+/* Adjust for toggled state */
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -250px;
+}
