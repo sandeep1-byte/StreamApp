@@ -1,0 +1,70 @@
+<div class="background-container1">
+    <div class="container-fluid">
+        <h2 class="text-center mb-4 text-white">Video List</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-light">
+                            <tr class="text-center">
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Thumbnail</th>
+                                <th>Video</th>
+                                <th>Update</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let video of videos; let i = index">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{ video.title }}</td>
+                                <td>{{ video.description }}</td>
+                                <td>{{ video?.categoryId
+                                    .categoryname }}</td>
+                                <td>
+                                    <img
+                                        [src]="'http://localhost:3005/src/uploads/thumbnails/' + video.thumbnail"
+                                        alt="Thumbnail"
+                                        class="img-thumbnail"
+                                    />
+                                </td>
+                                <td>
+                                    <video controls>
+                                        <source
+                                            [src]="'http://localhost:3005/src/uploads/videos/' + video.videofile"
+                                            type="video/mp4"
+                                        />
+                                    </video>
+                                </td>
+                                <td>
+                                    <button
+                                        class="btn btn-primary"
+                                        (click)="updateVideo()"
+                                        title="Update Video"
+                                    >
+                                        Update
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                    class="btn btn-danger"
+                                    (click)="deleteVideo(video._id)"
+                                    title="Delete Video"
+                                >
+                                    Delete
+                                </button>
+                                </td>
+                            </tr>
+                            <tr *ngIf="videos.length === 0">
+                                <td colspan="7" class="text-center">No videos available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="main-signup-page">
+  <div class="container-style">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <h3 class="text-center ">Create Account</h3>
+      <p class="text-center">Sign up with us</p>
+
+      <!-- Username input -->
+      <div class="form-group input-field">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" type="text" class="form-control form-input" [ngClass]="{
+            'is-invalid': f['username'].invalid && (f['username'].dirty || f['username'].touched)
+          }" formControlName="username" placeholder="Enter username" style="background-color: rgb(236, 233, 233)" required />
+        <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="text-danger">
+          <div *ngIf="f['username'].errors?.['required']">Username is required</div>
+          <div *ngIf="f['username'].errors?.['pattern']">Username must contain only letters</div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-group input-field">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="email" class="form-control form-input" [ngClass]="{
+            'is-invalid': f['email'].invalid && (f['email'].dirty || f['email'].touched)
+          }" formControlName="email" placeholder="Enter email" style="background-color: rgb(236, 233, 233)" required />
+        <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="text-danger">
+          <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+          <div *ngIf="f['email'].errors?.['email']">Invalid email address</div>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-group input-field">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" type="password" class="form-control form-input" [ngClass]="{
+            'is-invalid': f['password'].invalid && (f['password'].dirty || f['password'].touched)
+          }" formControlName="password" placeholder="Enter password" style="background-color: rgb(236, 233, 233)" required />
+        <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-danger">
+          <div *ngIf="f['password'].errors?.['required']">Password is required</div>
+          <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters long</div>
+          <div *ngIf="f['password'].errors?.['pattern']">Password must contain at least one alphabet</div>
+        </div>
+      </div>
+
+      <!-- Role selector -->
+      <div class="form-group input-field">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" class="form-control form-input" [ngClass]="{
+            'is-invalid': f['role'].invalid && (f['role'].dirty || f['role'].touched)
+          }" formControlName="role" style="background-color: rgb(236, 233, 233)" required>
+          <option value="" disabled >Select role</option>
+          <option value="user">User</option>
+          <option value="creator">Content Creator</option>
+        </select>
+        <div *ngIf="f['role'].invalid && (f['role'].dirty || f['role'].touched)" class="text-danger">
+          <div *ngIf="f['role'].errors?.['required']">Role is required</div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn-submit btn btn-primary btn-lg btn-block custom-margin-top" [disabled]="signUpForm.invalid">Sign up</button>
+
+      <p class="text-center footer-text margin-top-30">
+        Already have an account? <a (click)="navigateToSignIn()" class="link">Sign in</a>
+      </p>
+    </form>
+  </div>
+</div>

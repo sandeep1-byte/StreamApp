@@ -1,0 +1,58 @@
+<div class="background-container">
+  <div class="container">
+    <h2 class="my-4 text-center">Create Video</h2>
+    
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <!-- Title Input -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input id="title" formControlName="title" class="form-control" required />
+        <div *ngIf="uploadForm.get('title')?.invalid && uploadForm.get('title')?.touched" class="text-danger">
+          Title is required
+        </div>
+      </div>
+      
+      <!-- Description Input -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" formControlName="description" class="form-control" required></textarea>
+        <div *ngIf="uploadForm.get('description')?.invalid && uploadForm.get('description')?.touched" class="text-danger">
+          Description is required
+        </div>
+      </div>
+      
+      <!-- Category Name Dropdown -->
+      <div class="mb-3">
+        <label for="category" class="form-label">Category Name</label>
+        <select id="category" formControlName="categoryName" class="form-control custom-dropdown" required>
+          <option value="" disabled>Select a category</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <div *ngIf="uploadForm.get('categoryName')?.invalid && uploadForm.get('categoryName')?.touched" class="text-danger">
+          Category is required
+        </div>
+      </div>
+      
+      <!-- Video Upload -->
+      <div class="mb-3">
+        <label for="video" class="form-label">Video</label>
+        <input type="file" id="video" (change)="onFileChange($event, 'video')" class="form-control" accept="video/*" required />
+        <div *ngIf="uploadForm.get('video')?.invalid && uploadForm.get('video')?.touched" class="text-danger">
+          Video is required
+        </div>
+      </div>
+      
+      <!-- Thumbnail Upload -->
+      <div class="mb-3">
+        <label for="thumbnail" class="form-label">Thumbnail</label>
+        <input type="file" id="thumbnail" (change)="onFileChange($event, 'thumbnail')" class="form-control" accept="image/*" required />
+        <div *ngIf="uploadForm.get('thumbnail')?.invalid && uploadForm.get('thumbnail')?.touched" class="text-danger">
+          Thumbnail is required
+        </div>
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  </div>
+</div>

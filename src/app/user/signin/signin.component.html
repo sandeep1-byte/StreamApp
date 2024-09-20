@@ -1,0 +1,72 @@
+<div class="main-signup-page">
+  <div class="container-style">
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <h3 class="text-center font-small">Sign In</h3>
+      <p class="text-center ">Sign in with us</p>
+
+      <!-- Email input -->
+      <div class="form-group input-field">
+        <label for="email">Email</label>
+        <input id="email" type="email" class="form-control" [ngClass]="{
+            'has-error': f['email'].invalid && (f['email'].dirty || f['email'].touched)
+          }" style="height: 35px; background-color: rgb(236, 233, 233)" formControlName="email"
+          placeholder="Enter email" required />
+        <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="text-danger">
+          <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+          <div *ngIf="f['email'].errors?.['email']">Invalid email address</div>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-group input-field">
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control" [ngClass]="{
+            'has-error': f['password'].invalid && (f['password'].dirty || f['password'].touched)
+          }" style="height: 35px; background-color: rgb(236, 233, 233)" formControlName="password"
+          placeholder="Enter password" required />
+        <div *ngIf="
+            f['password'].invalid &&
+            (f['password'].dirty || f['password'].touched)
+          " class="text-danger">
+          <div *ngIf="f['password'].errors?.['required']">
+            Password is required
+          </div>
+          <div *ngIf="f['password'].errors?.['minlength']">
+            Password must be at least 6 characters long
+          </div>
+          <div *ngIf="f['password'].errors?.['pattern']">
+            Password must contain at least one alphabet.
+          </div>
+        </div>
+      </div>
+
+      <!-- Role selector -->
+      <div class="form-group input-field">
+        <label for="role">Role</label>
+        <select id="role" class="form-control" [ngClass]="{
+            'has-error': f['role'].invalid && (f['role'].dirty || f['role'].touched)
+          }" style="height: 35px; background-color: rgb(236, 233, 233)" formControlName="role" required>
+          <option value="" disabled>Select role</option>
+          <option value="user">User</option>
+          <option value="creator">Content Creator</option>
+          <option value="admin">Admin</option>
+        </select>
+        <div *ngIf="f['role'].invalid && (f['role'].dirty || f['role'].touched)" class="text-danger">
+          <div *ngIf="f['role'].errors?.['required']">Role is required</div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-lg btn-block custom-margin-top" (click)="navigateTodashboard()" [disabled]="signInForm.invalid">
+        Sign in
+      </button>
+
+      <p class="text-center margin-top-30">
+        Don't have an account? <a (click)="navigateToSignUp()" class="text-primary">Create now</a>
+      </p>
+      <p class="text-center">
+        <a (click)="navigateToForgotPassword()" class="text-primary">Forgot Password?</a>
+      </p>
+    </form>
+  </div>
+</div>

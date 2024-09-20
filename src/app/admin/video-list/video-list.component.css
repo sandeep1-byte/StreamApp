@@ -1,0 +1,86 @@
+.background-container1 {
+  height:100vh;
+  background-color: #46698b; /* Background color */
+  
+}
+
+.container {
+  margin-top: 20px;
+}
+
+/* Ensure images and videos fit within the table cells */
+.table img, 
+.table video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Center-align text and vertically align cells */
+.table th, 
+.table td {
+  vertical-align: middle;
+  text-align: center; /* Center align text */
+  padding: 15px; /* Increase padding */
+}
+.table tbody tr {
+    cursor: pointer; /* Change cursor to pointer on row hover */
+}
+
+.table tbody tr:hover {
+    background-color: #f5f5f5; /* Optional: Change background color on hover */
+}
+/* Thumbnail hover effect */
+.img-thumbnail {
+  transition: transform 0.3s;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Button hover effect */
+.btn-danger {
+  transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: darkred;
+}
+.table th, .table td {
+  padding: 5px; /* Decrease padding for table headers and cells */
+}
+
+.table tbody tr {
+  margin: 0; /* Remove margin for table rows */
+  padding: 5px; /* Set padding for table rows */
+}
+
+.table img, .table video {
+  max-width: 100%;
+  height: auto;
+}
+
+.table th, .table td {
+    padding: 2px; /* Further reduce padding for table headers and cells */
+    height: 30px; /* Set a specific height for table cells */
+}
+
+.table tbody tr {
+    margin: 0; /* Ensure no margin for table rows */
+}
+
+.table img {
+    width: 80px; /* Set a fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.table video {
+    width: 100px; /* Set a fixed width for video */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.table th {
+    text-align: center; /* Center align headers */
+}
+
+/* Remove unnecessary duplicate rules */

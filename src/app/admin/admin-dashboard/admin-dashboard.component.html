@@ -1,21 +1,22 @@
-<div class="d-flex" id="wrapper">
+<div class="d-flex" >
   <!-- Sidebar -->
-  <div class="bg-dark border-right pt-4" id="sidebar-wrapper">
+  <div class="bg-dark border-right pt-4 col-md-3"  id="sidebar-wrapper">
     <img src="https://attic.sh/yb6l2mqmei5h05bb4hozvow7zhr1" class="m-auto" style="width: 200px; height: 200px;" alt="">
     <!-- <div class="sidebar-heading text-white container fs-5">Admin</div> -->
     <h4 class="text-center text-white">Admin</h4>
     <div class="list-group list-group-flush m-3">
-      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="userDashboard()">Dashboard</a>
-      <a class="list-group-item list-group-item-action bg-dark text-white">Users</a>
-      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="productDashboard()">Products</a>
-      <a class="list-group-item list-group-item-action bg-dark text-white">Orders</a>
+      <!-- <a class="list-group-item list-group-item-action bg-dark text-white">Users</a> -->
+      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="uploadvideo()">createVideo</a>
+      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="userDashboard()">UpdatePassword</a>
+      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="Videolist()">Videolist</a>
+      <a class="list-group-item list-group-item-action bg-dark text-white" style="cursor: pointer;" (click)="productDashboard()">Logout</a>
       <a class="list-group-item list-group-item-action bg-dark text-white">Settings</a>
+
     </div>
   </div>
 
   <!-- Page Content -->
-  <div id="page-content-wrapper">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
       <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -31,7 +32,10 @@
           </li>
         </ul>
       </div>
-    </nav>
-    <router-outlet></router-outlet> <!-- Dynamic content will be loaded here -->
-  </div>
+    </nav> -->
+    <div class="w-100">
+      <router-outlet></router-outlet> <!-- Dynamic content will be loaded here -->
+
+    </div>
+  
 </div>
